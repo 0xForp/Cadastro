@@ -88,7 +88,7 @@ class Cadastro():
 class Listar():
     def listar_por_setor(self):
         df_list = pd.read_csv('C:/Users/T-Gamer/Desktop/Cadastros.csv')  
-        print(df_list)
+        print(df_list[['Setor','Salario Bruto']])
 
        
         
