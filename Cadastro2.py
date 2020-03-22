@@ -89,8 +89,10 @@ class Listar():
     def listar_por_setor(self):
         df_list = pd.read_csv('C:/Users/T-Gamer/Desktop/Cadastros.csv')  
         print(df_list[['Setor','Salario Bruto']])
-
-       
+    
+    def listar_df(self):
+        df_full = pd.read_csv('C:/Users/T-Gamer/Desktop/Cadastros.csv')
+        print(df_full)
         
 cad = Cadastro()
 cad.mostrar()
@@ -100,7 +102,7 @@ cad.dataframe()
 
 lista = Listar()
 lista.listar_por_setor()
-    
+lista.listar_df()    
        
     
  
