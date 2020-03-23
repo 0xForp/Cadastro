@@ -72,12 +72,13 @@ class Cadastro():
         
         data1 = {'Nome':self.nome,'Matricula':self.matricula,'Cidade':self.cidade,'Setor':self.setor,'Cargo':self.cargo,'Salario Bruto':self.salario,'Desconto Inss':descontado_inss,'Desconto Irrs':descontado_irrs,'Salário Liquido':salario_liquido}
         df = pd.DataFrame(data=data1,index=[0])
+        
         perg = input('Salvar? (s/n)')
         if perg == 's' or 'S':
-            if os.path.exists("C:/Users/T-Gamer/Desktop/Cadastros.csv"):
-                df.to_csv('C:/Users/T-Gamer/Desktop/Cadastros.csv',mode='a',header=False)
+            if os.path.exists(caminho):
+                df.to_csv(caminho,mode='a',header=False)
             else:
-                df.to_csv('C:/Users/T-Gamer/Desktop/Cadastros.csv')
+                df.to_csv(caminho)
                 df.append(df)
 
 
@@ -87,11 +88,11 @@ class Cadastro():
             
 class Listar():
     def listar_por_setor(self):
-        df_list = pd.read_csv('C:/Users/T-Gamer/Desktop/Cadastros.csv')  
+        df_list = pd.read_csv(caminho)  
         print(df_list[['Setor','Salario Bruto']])
     
     def listar_df(self):
-        df_full = pd.read_csv('C:/Users/T-Gamer/Desktop/Cadastros.csv')
+        df_full = pd.read_csv(caminho)
         print(df_full)
 
 
@@ -117,6 +118,7 @@ def perg_inicial():
     else:
         pass
 
+caminho = input('Aonde você deseja salvar o arquivo? Ex: C:/       :')
 perg_inicial()
 
 #cad = Cadastro()
