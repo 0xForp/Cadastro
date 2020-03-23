@@ -98,7 +98,7 @@ class Listar():
 
 
 def perg_inicial():
-    perg_init = input('Olá. \n Insira o número correspondente : 1 - Cadastrar Funcionário /// 2 - Listar Funcionários /// 3 - Listar Custo Por Setor') 
+    perg_init = input('Olá. \n Insira o número correspondente : 1 - Cadastrar Funcionário /// 2 - Listar Funcionários /// 3 - Listar Custo Por Setor : ') 
     if perg_init == '1':
         cad = Cadastro()
         cad.mostrar()
@@ -118,7 +118,16 @@ def perg_inicial():
     else:
         pass
 
-caminho = input('Aonde você deseja salvar o arquivo? Ex: C:/       :')
+qst = input('É a primeira vez usando o programa? (s/n) :')
+if qst == 's':
+    caminho = input('Bem vindo,Aonde você deseja salvar o arquivo? Ex: C:/       :')
+else:
+    p = input('Já possui um arquivo Cadastro criado? (s/n) : ')
+    if p == 's':
+        caminho = input('Especifique o caminho do arquivo : ')
+    else:
+        caminho = input('Aonde você deseja salvar o arquivo? Ex: C:/       :')
+
 perg_inicial()
 
 #cad = Cadastro()
