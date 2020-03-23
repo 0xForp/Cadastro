@@ -89,8 +89,14 @@ class Cadastro():
 class Listar():
     def listar_por_setor(self):
         df_list = pd.read_csv(caminho)  
-        print(df_list[['Setor','Salario Bruto']])
+        grupo_setor = df_list.groupby(['Setor'])
+
+        for key, item in grupo_setor:
+            print(grupo_setor.get_group(key), "\n")
     
+
+            
+
     def listar_df(self):
         df_full = pd.read_csv(caminho)
         print(df_full)
@@ -111,6 +117,7 @@ def perg_inicial():
     else:
         lista = Listar()
         lista.listar_por_setor()
+        
 
     perg_final = input('Deseja realizar outra operação? (s/n) : ')
     if perg_final == 's':
