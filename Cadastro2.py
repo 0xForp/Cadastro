@@ -93,16 +93,41 @@ class Listar():
     def listar_df(self):
         df_full = pd.read_csv('C:/Users/T-Gamer/Desktop/Cadastros.csv')
         print(df_full)
-        
-cad = Cadastro()
-cad.mostrar()
-cad.calc_inss()
-cad.calc_irrs()
-cad.dataframe()
 
-lista = Listar()
-lista.listar_por_setor()
-lista.listar_df()    
+
+
+def perg_inicial():
+    perg_init = input('Olá. \n Insira o número correspondente : 1 - Cadastrar Funcionário /// 2 - Listar Funcionários /// 3 - Listar Custo Por Setor') 
+    if perg_init == '1':
+        cad = Cadastro()
+        cad.mostrar()
+        cad.calc_inss()
+        cad.calc_irrs()
+        cad.dataframe()
+    elif perg_init == '2':
+        lista= Listar()
+        lista.listar_df()
+    else:
+        lista = Listar()
+        lista.listar_por_setor()
+
+    perg_final = input('Deseja realizar outra operação? (s/n) : ')
+    if perg_final == 's':
+        perg_inicial()
+    else:
+        pass
+
+perg_inicial()
+
+#cad = Cadastro()
+#cad.mostrar()
+#cad.calc_inss()
+#cad.calc_irrs()
+#cad.dataframe()
+
+#lista = Listar()
+#lista.listar_por_setor()
+#lista.listar_df()    
        
     
  
